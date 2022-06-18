@@ -11,5 +11,7 @@ namespace Aplicacion.Persistencia
     public interface ISolicitudRepository : IAsyncRepository<Solicitud>
     {
         Task<List<Solicitud>> GetListSolicitud();
+
+        Task<List<Solicitud>> GetListSolicitudSP();
     }
 }

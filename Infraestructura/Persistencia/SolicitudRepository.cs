@@ -15,6 +15,11 @@ namespace Infraestructura.Persistencia
         {
             return await _context.solicitud!.ToListAsync();
         }
+
+        public async Task<List<Solicitud>> GetListSolicitudSP()
+        {
+            return await _context.solicitud.FromSqlRaw("Sp_Solicitud").ToListAsync();
+        }
     }
 
 }

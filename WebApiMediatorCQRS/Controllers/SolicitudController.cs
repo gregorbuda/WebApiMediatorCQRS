@@ -22,11 +22,23 @@ namespace WebApiMediatorCQRS.Controllers
             _solicitudRepository = solicitudRepository;
         }
 
-        [HttpGet(Name = "GetSolicitud")]
+
+        [HttpGet]
+        [Route("GetSolicitud")]
         [ProducesResponseType(typeof(List<Solicitud>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<List<Solicitud>>> GetSolicitud()
         {
             var query = new GetSolicitudesListQuery();
+            var solicitudes = await _mediator.Send(query);
+            return Ok(solicitudes);
+        }
+
+        [HttpGet]
+        [Route("GetSolicitudSp")]
+        [ProducesResponseType(typeof(List<Solicitud>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<List<Solicitud>>> GetSolicitudSp()
+        {
+            var query = new GetSolicitudSP();
             var solicitudes = await _mediator.Send(query);
             return Ok(solicitudes);
         }

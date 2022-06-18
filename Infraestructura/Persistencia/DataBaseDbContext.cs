@@ -5,6 +5,10 @@ namespace Infraestructura.Persistencia
 {
     public class DataBaseDbContext : DbContext
     {
+        public DataBaseDbContext()
+        {
+        }
+
         public DataBaseDbContext(DbContextOptions options) : base(options)
         {
 
